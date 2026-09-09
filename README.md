@@ -4,7 +4,7 @@ AI Personal Pattern & Experiment SaaS
 
 Patternly helps users discover patterns in their daily behavior and test those patterns through personal experiments. The core loop is **Track → Discover → Test → Learn**.
 
-> This repository is currently at the planning stage. The full product specification lives in [docs/prd.md](docs/prd.md); the `client/` and `server/` applications described below will be scaffolded as implementation proceeds.
+> The full product specification lives in [docs/prd.md](docs/prd.md). The `client/` and `server/` applications below implement it end to end.
 
 ## Tech stack
 
@@ -54,6 +54,8 @@ Copy `.env.example` to `.env` and fill in the values:
 | `RAZORPAY_KEY_ID` | Razorpay API key ID |
 | `RAZORPAY_KEY_SECRET` | Razorpay API key secret |
 | `RAZORPAY_WEBHOOK_SECRET` | Secret used to verify Razorpay webhook signatures |
+| `RAZORPAY_PLAN_ID_MONTHLY` | Razorpay plan ID for the monthly Pro subscription |
+| `RAZORPAY_PLAN_ID_ANNUAL` | Razorpay plan ID for the annual Pro subscription |
 | `CLIENT_URL` | Base URL of the frontend (for CORS/redirects) |
 | `SERVER_URL` | Base URL of the backend API |
 
@@ -93,6 +95,30 @@ cd server && npm run seed
 ```
 
 Do not run the seed script against a production database.
+
+The seed script prints a demo login:
+
+```text
+email:    demo@patternly.app
+password: Demo1234!
+```
+
+## Testing
+
+```bash
+# server (Jest + Supertest + an in-memory MongoDB)
+cd server && npm test
+
+# client (Vitest + Testing Library)
+cd client && npm test
+```
+
+## Linting
+
+```bash
+cd server && npm run lint
+cd client && npm run lint
+```
 
 ## Documentation
 
