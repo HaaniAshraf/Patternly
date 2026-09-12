@@ -1,10 +1,11 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
 import { Logo } from '@/components/Logo';
 
 export function PublicLayout() {
   const { user } = useAuth();
+  const location = useLocation();
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -15,7 +16,7 @@ export function PublicLayout() {
             <span className="text-lg font-semibold tracking-tight">Patternly</span>
           </Link>
           <nav className="flex items-center gap-6 text-sm">
-            <Link to="/pricing" className="text-muted-foreground hover:text-foreground">
+            <Link to="/pricing" className="text-muted-foreground transition-colors hover:text-foreground">
               Pricing
             </Link>
             {user ? (
@@ -24,7 +25,7 @@ export function PublicLayout() {
               </Button>
             ) : (
               <>
-                <Link to="/login" className="text-muted-foreground hover:text-foreground">
+                <Link to="/login" className="text-muted-foreground transition-colors hover:text-foreground">
                   Log in
                 </Link>
                 <Button asChild size="sm">
@@ -36,7 +37,9 @@ export function PublicLayout() {
         </div>
       </header>
       <main className="flex-1">
-        <Outlet />
+        <div key={location.pathname} className="animate-fade-in">
+          <Outlet />
+        </div>
       </main>
       <footer className="border-t border-border py-8">
         <div className="container flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">

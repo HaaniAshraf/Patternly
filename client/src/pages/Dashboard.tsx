@@ -57,7 +57,7 @@ export function Dashboard() {
           {todayEntry ? (
             <>
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-success/10 text-success">
+                <div className="flex h-10 w-10 animate-scale-in items-center justify-center rounded-full bg-success/10 text-success">
                   <Check className="h-5 w-5" />
                 </div>
                 <div>

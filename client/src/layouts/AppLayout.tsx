@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { LayoutDashboard, CalendarCheck, Search, FlaskConical, Lightbulb, User, Settings, Sparkles, LogOut } from 'lucide-react';
 import { cn } from '@/utils/cn';
 import { Logo } from '@/components/Logo';
@@ -28,6 +28,7 @@ const mobileNav = [
 
 export function AppLayout() {
   const { user, logout } = useAuth();
+  const location = useLocation();
 
   return (
     <div className="flex min-h-screen">
@@ -60,7 +61,7 @@ export function AppLayout() {
 
       <div className="flex flex-1 flex-col">
         <main className="flex-1 pb-20 md:pb-0">
-          <div className="container max-w-5xl py-6 md:py-10">
+          <div key={location.pathname} className="container max-w-5xl animate-slide-up py-6 md:py-10">
             <Outlet />
           </div>
         </main>
@@ -72,12 +73,12 @@ export function AppLayout() {
               to={item.to}
               className={({ isActive }) =>
                 cn(
-                  'flex flex-1 flex-col items-center gap-1 py-2.5 text-[11px] text-muted-foreground',
+                  'group flex flex-1 flex-col items-center gap-1 py-2.5 text-[11px] text-muted-foreground transition-colors duration-150',
                   isActive && 'text-primary',
                 )
               }
             >
-              <item.icon className="h-5 w-5" />
+              <item.icon className="h-5 w-5 transition-transform duration-150 ease-out group-active:scale-90" />
               {item.label}
             </NavLink>
           ))}
@@ -93,12 +94,12 @@ function SidebarLink({ to, label, icon: Icon }: { to: string; label: string; ico
       to={to}
       className={({ isActive }) =>
         cn(
-          'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground',
+          'group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-all duration-150 hover:translate-x-0.5 hover:bg-accent hover:text-accent-foreground',
           isActive && 'bg-accent text-accent-foreground',
         )
       }
     >
-      <Icon className="h-4 w-4" />
+      <Icon className="h-4 w-4 transition-transform duration-150 group-hover:scale-110" />
       {label}
     </NavLink>
   );

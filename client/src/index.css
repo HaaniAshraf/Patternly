@@ -57,4 +57,22 @@
   .scrollbar-thin::-webkit-scrollbar-thumb {
     @apply bg-border rounded-full;
   }
+
+  .hover-lift {
+    @apply transition-all duration-200 ease-out;
+  }
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-soft-lg border-primary/25;
+  }
+
+  .shimmer {
+    background-image: linear-gradient(
+      100deg,
+      hsl(var(--muted)) 40%,
+      hsl(var(--border)) 50%,
+      hsl(var(--muted)) 60%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
 }

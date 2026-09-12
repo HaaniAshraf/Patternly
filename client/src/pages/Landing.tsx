@@ -35,16 +35,16 @@ export function Landing() {
   return (
     <div>
       <section className="container flex flex-col items-center gap-6 py-20 text-center sm:py-28">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
+        <span className="inline-flex animate-slide-up items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
           <Sparkles className="h-3.5 w-3.5" /> A personal data laboratory
         </span>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+        <h1 className="max-w-3xl animate-slide-up text-4xl font-semibold tracking-tight [animation-delay:80ms] [animation-fill-mode:backwards] sm:text-5xl md:text-6xl">
           What actually makes you better?
         </h1>
-        <p className="max-w-xl text-lg text-muted-foreground">
+        <p className="max-w-xl animate-slide-up text-lg text-muted-foreground [animation-delay:160ms] [animation-fill-mode:backwards]">
           Track a few things about your day. Discover your personal patterns. Test what actually works.
         </p>
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex animate-slide-up flex-col gap-3 [animation-delay:240ms] [animation-fill-mode:backwards] sm:flex-row">
           <Button size="lg" asChild>
             <Link to="/register">
               Start for free <ArrowRight className="h-4 w-4" />
@@ -61,10 +61,10 @@ export function Landing() {
           <h2 className="text-center text-2xl font-semibold tracking-tight sm:text-3xl">How it works</h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step) => (
-              <Card key={step.number} className="bg-card">
+              <Card key={step.number} className="hover-lift group bg-card">
                 <CardContent className="pt-6">
                   <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">{step.number}</div>
-                  <step.icon className="mt-3 h-6 w-6 text-primary" />
+                  <step.icon className="mt-3 h-6 w-6 text-primary transition-transform duration-200 group-hover:scale-110" />
                   <h3 className="mt-3 font-semibold">{step.title}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">{step.description}</p>
                 </CardContent>
@@ -80,7 +80,7 @@ export function Landing() {
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">See a pattern for yourself</h2>
             <p className="mt-2 text-muted-foreground">This is an example — your own patterns come from your own data.</p>
           </div>
-          <Card className="w-full max-w-md">
+          <Card className="hover-lift w-full max-w-md">
             <CardContent className="space-y-4 pt-6">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Search className="h-4 w-4" />
@@ -108,14 +108,14 @@ export function Landing() {
         <div className="container flex flex-col items-center gap-8">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Simple pricing</h2>
           <div className="grid w-full max-w-2xl gap-6 sm:grid-cols-2">
-            <Card>
+            <Card className="hover-lift">
               <CardContent className="space-y-2 pt-6">
                 <p className="font-medium">Free</p>
                 <p className="text-3xl font-semibold">₹0<span className="text-base font-normal text-muted-foreground">/month</span></p>
                 <p className="text-sm text-muted-foreground">14 days history · 3 patterns · 1 active experiment</p>
               </CardContent>
             </Card>
-            <Card className="border-primary/40">
+            <Card className="hover-lift border-primary/40">
               <CardContent className="space-y-2 pt-6">
                 <p className="font-medium">Pro</p>
                 <p className="text-3xl font-semibold">₹299<span className="text-base font-normal text-muted-foreground">/month</span></p>

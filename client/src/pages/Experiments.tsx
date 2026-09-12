@@ -70,7 +70,7 @@ function ExperimentSection({ title, experiments }: { title: string; experiments:
       <div className="space-y-3">
         {experiments.map((exp) => (
           <Link key={exp.id} to={`/experiments/${exp.id}`}>
-            <Card className="transition-colors hover:bg-accent/40">
+            <Card className="hover-lift">
               <CardContent className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="font-medium">{exp.title}</p>

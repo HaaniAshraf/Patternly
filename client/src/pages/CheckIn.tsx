@@ -107,7 +107,7 @@ export function CheckIn() {
       <div className="mx-auto max-w-lg animate-slide-up">
         <Card>
           <CardContent className="space-y-4 pt-6 text-center">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-success/10 text-success">
+            <div className="mx-auto flex h-12 w-12 animate-scale-in items-center justify-center rounded-full bg-success/10 text-success">
               <Check className="h-6 w-6" />
             </div>
             <h1 className="text-xl font-semibold">You're done for today ✓</h1>

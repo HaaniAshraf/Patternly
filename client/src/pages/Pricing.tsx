@@ -52,7 +52,7 @@ export function Pricing() {
       </div>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
-        <Card>
+        <Card className="hover-lift">
           <CardHeader>
             <CardTitle>Free</CardTitle>
             <p className="text-3xl font-semibold">
@@ -75,7 +75,7 @@ export function Pricing() {
           </CardContent>
         </Card>
 
-        <Card className="border-primary/40 shadow-md">
+        <Card className="hover-lift border-primary/40 shadow-soft-lg">
           <CardHeader>
             <CardTitle>Pro</CardTitle>
             <p className="text-3xl font-semibold">

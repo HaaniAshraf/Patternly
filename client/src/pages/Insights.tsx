@@ -64,7 +64,7 @@ export function Insights() {
                         const patternId = insight.evidence.relatedPatternIds[0];
                         if (patternId) navigate(`/patterns/${patternId}`);
                       }}
-                      className="flex w-full items-start gap-2 rounded-md px-2 py-2 text-left text-sm hover:bg-accent"
+                      className="flex w-full items-start gap-2 rounded-md px-2 py-2 text-left text-sm transition-all duration-150 hover:translate-x-0.5 hover:bg-accent"
                     >
                       <span>{CONFIDENCE_DOT[insight.confidence]}</span>
                       <span>{insight.title}</span>
